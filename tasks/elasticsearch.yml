@@ -1,0 +1,20 @@
+# Install elasticsearch
+---
+- name: mkdir /tmp/ELASTIC_RPM
+  file: path=/tmp/ELASTIC_RPM state=directory
+
+- name: copy RPM to /tmp/ELASTIC_RPM
+  copy:
+    src: elasticsearch-5.6.12.rpm
+    dest: /tmp/ELASTIC_RPM
+#    register: rpms_copied
+
+- name: install RPMs
+  yum:
+    name: /tmp/ELASTIC_RPM/elasticsearch-5.6.12.rpm
+    state: present
+
+- name: Start elasticsearch service
+  service:
+   name: elasticsearch
+   state: started

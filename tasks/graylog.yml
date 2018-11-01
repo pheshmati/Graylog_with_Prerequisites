@@ -1,0 +1,16 @@
+#Install Graylog
+---
+- name: install the graylog rpm from a remote repo
+  yum:
+    name: https://packages.graylog2.org/repo/packages/graylog-2.4-repository_latest.rpm
+    state: present
+
+- name: install graylog
+  yum:
+    name: graylog-server
+    state: present
+
+- name: Start graylog service
+  service:
+   name: graylog-server.service
+   state: started

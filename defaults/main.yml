@@ -1,0 +1,7 @@
+#Install graylog with elasticsearch and mongodb
+# defaults file for ansible-mariadb-galera
+---
+
+java_config: 
+  package_source: repository
+#package_source should be "repository" or "local" 

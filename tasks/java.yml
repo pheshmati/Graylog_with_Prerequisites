@@ -1,0 +1,20 @@
+#Install java
+---
+- name: install java
+  yum:
+    name: java-1.8.0-openjdk-headless.x86_64  
+    state: present
+  when: java_config.package_source == "repository"
+
+- name: mkdir /tmp/JAVA_RPM
+  file: path=/tmp/JAVA_RPM state=directory
+
+- name: copy RPMs to /tmp/MONGO_RPMS
+  copy:
+   src: jdk-8u161.rpm
+   dest: /tmp/JAVA_RPM
+
+- name: install java
+  shell: |
+   yum localinstall /tmp/JAVA_RPM/jdk-8u161.rpm -y
+  when: java_config.package_source == "local"

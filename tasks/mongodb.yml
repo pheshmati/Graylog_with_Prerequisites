@@ -1,0 +1,60 @@
+# Install mongodb 
+---
+- name: mkdir /tmp/MONGO_RPMS
+  file: path=/tmp/MONGO_RPMS state=directory
+
+- name: copy RPMs to /tmp/MONGO_RPMS
+  copy: 
+   src: mongodb-org-mongos-3.6.8-1.el6.x86_64.rpm
+   dest: /tmp/MONGO_RPMS
+
+- name: install RPMs
+  yum:
+    name:
+      - /tmp/MONGO_RPMS/mongodb-org-mongos-3.6.8-1.el6.x86_64.rpm
+    state: present
+
+- name: copy tools package to /tmp/MONGO_RPMS
+  copy:
+   src: mongodb-org-tools-3.6.8-1.el6.x86_64.rpm
+   dest: /tmp/MONGO_RPMS
+
+- name: install tools
+  yum:
+    name:
+      - /tmp/MONGO_RPMS/mongodb-org-tools-3.6.8-1.el6.x86_64.rpm
+    state: present
+
+- name: copy shell package to /tmp/MONGO_RPMS
+  copy:
+   src: mongodb-org-shell-3.6.8-1.el6.x86_64.rpm
+   dest: /tmp/MONGO_RPMS
+
+- name: install shell
+  yum:
+    name:
+      - /tmp/MONGO_RPMS/mongodb-org-shell-3.6.8-1.el6.x86_64.rpm
+    state: present
+
+- name: copy server package to /tmp/MONGO_RPMS
+  copy:
+   src: mongodb-org-server-3.6.8-1.el6.x86_64.rpm
+   dest: /tmp/MONGO_RPMS
+
+- name: install server
+  yum:
+    name:
+      - /tmp/MONGO_RPMS/mongodb-org-server-3.6.8-1.el6.x86_64.rpm
+    state: present
+ 
+- name: copy 3.6 package to /tmp/MONGO_RPMS
+  copy:
+   src: mongodb-org-3.6.8-1.el6.x86_64.rpm
+   dest: /tmp/MONGO_RPMS
+
+- name: install 3.6
+  yum:
+    name:
+      - /tmp/MONGO_RPMS/mongodb-org-3.6.8-1.el6.x86_64.rpm
+    state: present
+
