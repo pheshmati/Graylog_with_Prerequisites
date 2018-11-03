@@ -10,6 +10,9 @@
     name: graylog-server
     state: present
 
+- name: configuration replace
+  template: src=server.conf.j2  dest=/etc/graylog/server/server.conf
+
 - name: Start graylog service
   service:
    name: graylog-server.service

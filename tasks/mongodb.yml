@@ -52,9 +52,16 @@
    src: mongodb-org-3.6.8-1.el6.x86_64.rpm
    dest: /tmp/MONGO_RPMS
 
+- name: configuration replace
+  template: src=mongod.conf.j2  dest=/etc/mongod.conf
+
 - name: install 3.6
   yum:
     name:
       - /tmp/MONGO_RPMS/mongodb-org-3.6.8-1.el6.x86_64.rpm
     state: present
 
+- name: Start mongodb service
+  service:
+   name: mongod
+   state: started

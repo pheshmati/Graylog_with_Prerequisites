@@ -14,6 +14,10 @@
     name: /tmp/ELASTIC_RPM/elasticsearch-5.6.12.rpm
     state: present
 
+- name: configuration replace
+  template: src=elasticsearch.yml.j2  dest=/etc/elasticsearch/elasticsearch.yml
+
+
 - name: Start elasticsearch service
   service:
    name: elasticsearch
