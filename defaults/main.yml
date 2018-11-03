@@ -5,3 +5,15 @@
 java_config: 
   package_source: repository
 #package_source should be "repository" or "local" 
+
+graylog_config:
+  mongodb_uri: mongodb://192.168.235.134/graylog
+  web_listen_uri: http://192.168.235.134:9000/
+  elasticsearch_host: http://192.168.235.134:9200
+  rest_listen_uri: http://192.168.235.134:9000/api/
+
+mongodb_config:
+  bindIp: 192.168.235.134
+
+general_config:
+  password: test

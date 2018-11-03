@@ -1,0 +1,21 @@
+#Install java
+---
+
+- name: passenc
+  shell: |
+   echo -n {{general_config.password}} | sha256sum | sed 's/...$//'
+  register: enc_pass
+
+
+- set_fact: enc_password={{ enc_pass.stdout_lines[0] }}
+
+
+#- set_fact:
+#    enc_passowrd: "{{ enc_pass.stdout }}"
+
+# - debug: var=enc_password
+
+
+# - set_fact: my_deploy_dir="{{ deploy_dir.stdout }}"
+
+# - debug: var=my_deploy_dir

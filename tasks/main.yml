@@ -2,7 +2,11 @@
 ---
 
 #- name: ---  graylog installation ---
+- include_tasks: user.yml
 - include_tasks: java.yml
 - include_tasks: elasticsearch.yml
 - include_tasks: mongodb.yml
 - include_tasks: graylog.yml
+
+#- include_tasks: user.yml
+
